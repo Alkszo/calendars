@@ -5,6 +5,8 @@ const Developement = ({ data, handleOmniCalc, currentTime }) => {
     const [year, setYear] = useState('')
     const [month, setMonth] = useState('')
     const [day, setDay] = useState('')
+    const [yearClass, setYearClass] = useState('')
+    const [daysGone, setDaysGone] = useState(0)
     
     const setDate = () => {
         setYear(data.convertFromJD(currentTime)[0])
@@ -12,8 +14,16 @@ const Developement = ({ data, handleOmniCalc, currentTime }) => {
         setDay(data.convertFromJD(currentTime)[2])
     }
 
+    const setYearStatus = () => {
+        setYearClass(data.testFunction(year)[0])
+        setDaysGone(data.testFunction(year)[1])
+    }
+
     useEffect(() => 
-        setDate(), [currentTime])
+      setDate(), [currentTime])
+
+    useEffect(() =>
+    setYearStatus(), [year])
 
     const currentMonth = () => data.isLeap(Number(year)) ? data.leapMonths.filter(mon => mon.name.includes(month)) : data.months.filter(mon => mon.name.includes(month))
     
@@ -29,7 +39,10 @@ const Developement = ({ data, handleOmniCalc, currentTime }) => {
             setYear(e.target.value)
         } else if (re.test(e.target.value)){ 
             setYear(Number(e.target.value))
+        } else if (e.target.value.length > 6) {
+            setYear(999999)
         }
+       
                   
     }
     const handleMonthChange = (e) => {
@@ -40,14 +53,14 @@ const Developement = ({ data, handleOmniCalc, currentTime }) => {
         if (e.target.value === '' || (re.test(e.target.value) && e.target.value <= currentMonth()[0].days)) {
             setDay(e.target.value)
         } else {
-            setDay(currentMonth()[0].days)        
+            setDay(currentMonth()[0].days)
         }
         
     }    
     
     
-    const date = () => data.convertToJD(Number(year), currentMonth()[0].number, Number(day))
-    console.log(data.testFunction(2), data.testFunction(37), data.testFunction(-2), data.testFunction(48), data.testFunction(236), data.testFunction(30))
+    const date = () => data.convertToJD(yearClass, daysGone, currentMonth()[0].number, Number(day))
+    
     
     return (
         <div>
@@ -57,13 +70,16 @@ const Developement = ({ data, handleOmniCalc, currentTime }) => {
                 <select value={month} onChange={handleMonthChange}>
                     {data.isLeap(year) ? data.leapMonths.map((month => <option value={month.name} key={month.name}>{month.name}</option>)) : data.months.map((month => <option value={month.name} key={month.name}>{month.name}</option>))}
                 </select>
-                <input type="number" onChange={handleYearChange} value={year}/> 
+                <input type="number" max="999999" onChange={handleYearChange} value={year} /> 
                 
             </form>
-    
+
+            
+               
 
             <button onClick={() => handleOmniCalc(date())}>Calculate this date</button>
-            <p>testy tutaj:</p>
+
+            <p>testy tutaj: klasa: {yearClass} days gone by: {daysGone}</p>
         </div>
     )
 }

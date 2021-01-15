@@ -1,111 +1,607 @@
 const devdata = 
 {
-    id: 2,
+    id: 4,
     name: 'in developement',
     months: [
-        {name: 'al-Muharram', number: 1, days: 30},
-        {name: 'Safar', number: 2, days: 29},
-        {name: 'Rabi al-Awwal', number: 3, days: 30},
-        {name: 'Rabi ath-Thani', number: 4, days: 29},
-        {name: 'Jumada al-Ula', number: 5, days: 30},
-        {name: 'Jumada ath-Thaniyah', number: 6, days: 29},
-        {name: 'Rajab', number: 7, days: 30},
-        {name: 'Sha\'ban', number: 8, days: 29},
-        {name: 'Ramadan', number: 9, days: 30},
-        {name: 'Shawwal', number: 10, days: 29},
-        {name: 'Du al-Qa\'dah', number: 11, days: 30},
-        {name: 'Du al-Hijjah', number: 12, days: 29},
+        {name: 'Nisan', number: 1, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Iyar', number: 2, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Sivan', number: 3, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Tammuz', number: 4, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Av', number: 5, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Elul', number: 6, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Tishrei', number: 7, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Cheshvan', number: 8, days: 29, completeDays: 30, defectiveDays: 29},
+        {name: 'Kislev', number: 9, days: 30, completeDays: 30, defectiveDays: 29},
+        {name: 'Tevet', number: 10, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Shevat', number: 11, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Adar', number: 12, days: 29, completeDays: 29, defectiveDays: 29},
     ],
     leapMonths: [
-        {name: 'al-Muharram', number: 1, days: 30},
-        {name: 'Safar', number: 2, days: 29},
-        {name: 'Rabi al-Awwal', number: 3, days: 30},
-        {name: 'Rabi ath-Thani', number: 4, days: 29},
-        {name: 'Jumada al-Ula', number: 5, days: 30},
-        {name: 'Jumada ath-Thaniyah', number: 6, days: 29},
-        {name: 'Rajab', number: 7, days: 30},
-        {name: 'Sha\'ban', number: 8, days: 29},
-        {name: 'Ramadan', number: 9, days: 30},
-        {name: 'Shawwal', number: 10, days: 29},
-        {name: 'Du al-Qa\'dah', number: 11, days: 30},
-        {name: 'Du al-Hijjah', number: 12, days: 30},
+        {name: 'Nisan', number: 1, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Iyar', number: 2, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Sivan', number: 3, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Tammuz', number: 4, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Av', number: 5, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Elul', number: 6, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Tishrei', number: 7, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Cheshvan', number: 8, days: 29, completeDays: 30, defectiveDays: 29},
+        {name: 'Kislev', number: 9, days: 30, completeDays: 30, defectiveDays: 29},
+        {name: 'Tevet', number: 10, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Shevat', number: 11, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Adar', number: 12, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Adar II', number: 13, days: 29, completeDays: 29, defectiveDays: 29},
     ],
     isLeap(year) {
-        const longYears = [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29]
-        const longMinusYears = [2, 5, 7, 10, 13, 15, 18, 21, 24, 26, 29]
-        return year > 0 ? longYears.includes(year % 30) : longMinusYears.includes(Math.abs(year % 30))
-    },     
-    convertToJD(year, month, day) {
-        const islamicEpoch = -451561
-          let elapsedMonthDays = 0
-          this.months.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.days})
-          let count = year > 0 ? 1 : 0
-          let elapsedYearDays = 0
-          if (year > 0) {
-                while (count < year) {
-                  count++;
-                  this.isLeap(count) ? elapsedYearDays += 355 : elapsedYearDays += 354;
-                }
+        const longYears = [0, 3, 6, 8, 11, 14, 17]
+        const longMinusYears = [1, 3, 6, 9, 12, 14, 17]
+        return year > 0 ? longYears.includes(year % 19) : longMinusYears.includes(Math.abs(year % 19))
+    },
+    yearType(year) {
+      let d = year > 0 ? 2 : 3
+      let h = year > 0 ? 5 : 7
+      let ch = year > 0 ? 204 : 695
+      let nextD = 0
+      let nextH = 0
+      let nextCh = 0
+      let yearType = 'normal'
+      if (year > 0) {
+          let count = 1                
+          while (count < year) {
+              if (this.isLeap(count)) {
+                  d = d + 5; h = h + 21; ch = ch + 589;
               } else {
-                  while (count > year) {
-                    count--;
-                    this.isLeap(count) ? elapsedYearDays -= 355 : elapsedYearDays -= 354;
+                  d = d + 4; h = h + 8; ch = ch + 876;
+              }
+              if (!(1080 > ch)) {
+                  ch = ch - 1080; h++;
+              }
+              if (!(24 > h)) {
+                  h = h - 24; d++;
+              }
+              d > 7 ? d = d - 7 : d = d;            
+              
+              count++;
+          }
+      } else {
+          let count = -1
+          while (count > year) {
+              if (this.isLeap(count - 1)) {
+                  d = d - 5; h = h - 21; ch = ch - 589;
+              } else {
+                  d = d - 4; h = h - 8; ch = ch - 876;
+              } 
+              if (ch < 0) {
+                  ch = 1080 - Math.abs(ch); h--;
+              }
+              if (h < 0) {
+                  h = 24 - Math.abs(h); d--;
+              }
+              d <= 0 ? d = 7 - Math.abs(d) : d = d;
+
+              count--;
+          }
+      }
+      let roshHashanah = d
+      h >= 18 ? roshHashanah++ : roshHashanah = roshHashanah;
+      roshHashanah === 8 ? roshHashanah = 2 : roshHashanah = roshHashanah;
+      if (roshHashanah === 1 || roshHashanah === 4 || roshHashanah === 6) {
+          roshHashanah++;
+      } 
+      if (!this.isLeap(year) && d === 3 && h < 18 && ((h > 9) || (h === 9 && ch >= 204))) {
+          roshHashanah = 5;
+      }
+      if (this.isLeap(year - 1) && d === 2 && h < 18 &&((h > 15) || (h === 15 && ch > 589))) {
+          roshHashanah++;
+      }
+          if (this.isLeap(year)) {
+              nextD = d + 5; nextH = h +21; nextCh = ch + 589;
+          } else {
+              nextD = d + 4; nextH = h + 8; nextCh = ch + 876;
+          }
+          if (!(1080 > nextCh)) {
+              nextCh = nextCh - 1080; nextH++;
+          }
+          if (!(24 > nextH)) {
+              nextH = nextH - 24; nextD++;
+          }
+          nextD > 7 ? nextD = nextD -7 : nextD = nextD;
+          
+              let nextRoshHashanah = nextD
+              nextH >= 18 ? nextRoshHashanah++ : nextRoshHashanah = nextRoshHashanah;
+              nextRoshHashanah === 8 ? nextRoshHashanah = 2 : nextRoshHashanah = nextRoshHashanah;
+              if (nextRoshHashanah === 1 || nextRoshHashanah === 4 || nextRoshHashanah === 6) {
+                  nextRoshHashanah++;
+              } 
+              if (!this.isLeap(year + 1) && nextD === 3 && nextH < 18 && ((nextH > 9) || (nextH === 9 && nextCh >= 204))) {
+                  nextRoshHashanah = 5;
+              }
+              if (this.isLeap(year) && nextD === 2 && nextH < 18 &&((nextH > 15) || (nextH === 15 && nextCh > 589))) {
+                  nextRoshHashanah++;
+              }
+
+          let dayDifferance = nextRoshHashanah - roshHashanah
+          dayDifferance < 0 ? dayDifferance = 7 - Math.abs(dayDifferance) : dayDifferance = dayDifferance
+          if (dayDifferance === 3) {
+              yearType = 'defective'
+          }
+          if (dayDifferance === 0) {
+              yearType = 'complete'
+          }
+          if (dayDifferance === 5) {
+              if (this.isLeap(year)) {
+                  yearType = 'defective'
+              } else {
+                  yearType = 'complete'
+              }
+          }
+      return yearType
+    },
+    yearClass(year) {
+        if (!this.isLeap(year) && this.yearType(year) === 'defective') {
+            return 'a'
+        } else if (!this.isLeap(year) && this.yearType(year) === 'normal') {
+            return 'b'
+        } else if (!this.isLeap(year) && this.yearType(year) === 'complete') {
+            return 'c'
+        } else if (this.isLeap(year) && this.yearType(year) === 'defective') {
+            return 'd'
+        } else if (this.isLeap(year) && this.yearType(year) === 'normal') {
+            return 'e'
+        } else if (this.isLeap(year) && this.yearType(year) === 'complete') {
+            return 'f'
+        }
+    },
+    elapsedYearDays(year) {
+      let count = year > 0 ? 1 : -1
+      let elapsedYearDays = year > 0 ? 0 : -384
+      if (year > 0) {
+            while (count < year) { 
+                if (this.yearClass(count) === 'a') {
+                    elapsedYearDays +=353
+                  } else if (this.yearClass(count) === 'b') {
+                    elapsedYearDays +=354
+                  } else if (this.yearClass(count) === 'c') {
+                    elapsedYearDays +=355
+                  } else if (this.yearClass(count) === 'd') {
+                    elapsedYearDays +=383
+                  } else if (this.yearClass(count) === 'e') {
+                    elapsedYearDays +=384
+                  } else if (this.yearClass(count) === 'f') {
+                    elapsedYearDays +=385
+                  }
+              count++;
+            }
+          } else {
+              while (count > year) {
+                count--;
+                if (this.yearClass(count) === 'a') {
+                    elapsedYearDays -=353
+                  } else if (this.yearClass(count) === 'b') {
+                    elapsedYearDays -=354
+                  } else if (this.yearClass(count) === 'c') {
+                    elapsedYearDays -=355
+                  } else if (this.yearClass(count) === 'd') {
+                    elapsedYearDays -=383
+                  } else if (this.yearClass(count) === 'e') {
+                    elapsedYearDays -=384
+                  } else if (this.yearClass(count) === 'f') {
+                    elapsedYearDays -=385
                   }
               }
-          
+          }
+          return elapsedYearDays
+    },    
+    convertToJD(yearClass, daysGone, month, day) {
+        const hebrewEpoch = -2051825
+          let elapsedMonthDays = 0
+          if (yearClass === 'a') {
+            this.months.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.defectiveDays})
+          } else if (yearClass === 'b') {
+            this.months.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.days})
+          } else if (yearClass === 'c') {
+            this.months.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.completeDays})
+          } else if (yearClass === 'd') {
+            this.leapMonths.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.defectiveDays})
+          } else if (yearClass === 'e') {
+            this.leapMonths.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.days})
+          } else {
+            this.leapMonths.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.completeDays})
+          }       
           return(
-              islamicEpoch + 
-              elapsedYearDays +          
+              hebrewEpoch + 
+              daysGone +          
               elapsedMonthDays +                  
               day - 1              
           )            
     },     
     convertFromJD(jd) {
-        const islamicEpoch = -451561
-        let epochDay = jd - islamicEpoch
+        const hebrewEpoch = -2051825
+        let epochDay = jd - hebrewEpoch
         if (epochDay >= 0) {
             epochDay++
         }   
-                
+          
+          let d = epochDay > 0 ? 2 : 3
+      let h = epochDay > 0 ? 5 : 7
+      let ch = epochDay > 0 ? 204 : 695
+      let yearType
+      let yearClass = epochDay > 0 ? 'c' : 'e'    
+      const getYearType = (year, d, h, ch) => {
+        yearType = 'normal'
+        let roshHashanah = d
+        let nextD = 0
+            let nextH = 0
+            let nextCh = 0
+      h >= 18 ? roshHashanah++ : roshHashanah = roshHashanah;
+      roshHashanah === 8 ? roshHashanah = 2 : roshHashanah = roshHashanah;
+      if (roshHashanah === 1 || roshHashanah === 4 || roshHashanah === 6) {
+          roshHashanah++;
+      } 
+      if (!this.isLeap(year) && d === 3 && h < 18 && ((h > 9) || (h === 9 && ch >= 204))) {
+          roshHashanah = 5;
+      }
+      if (this.isLeap(year - 1) && d === 2 && h < 18 &&((h > 15) || (h === 15 && ch > 589))) {
+          roshHashanah++;
+      }
+          if (this.isLeap(year)) {
+              nextD = d + 5; nextH = h +21; nextCh = ch + 589;
+          } else {
+              nextD = d + 4; nextH = h + 8; nextCh = ch + 876;
+          }
+          if (!(1080 > nextCh)) {
+              nextCh = nextCh - 1080; nextH++;
+          }
+          if (!(24 > nextH)) {
+              nextH = nextH - 24; nextD++;
+          }
+          nextD > 7 ? nextD = nextD -7 : nextD = nextD;
+          
+              let nextRoshHashanah = nextD
+              nextH >= 18 ? nextRoshHashanah++ : nextRoshHashanah = nextRoshHashanah;
+              nextRoshHashanah === 8 ? nextRoshHashanah = 2 : nextRoshHashanah = nextRoshHashanah;
+              if (nextRoshHashanah === 1 || nextRoshHashanah === 4 || nextRoshHashanah === 6) {
+                  nextRoshHashanah++;
+              } 
+              if (!this.isLeap(year + 1) && nextD === 3 && nextH < 18 && ((nextH > 9) || (nextH === 9 && nextCh >= 204))) {
+                  nextRoshHashanah = 5;
+              }
+              if (this.isLeap(year) && nextD === 2 && nextH < 18 &&((nextH > 15) || (nextH === 15 && nextCh > 589))) {
+                  nextRoshHashanah++;
+              }
+              let dayDifferance = nextRoshHashanah - roshHashanah
+              dayDifferance < 0 ? dayDifferance = 7 - Math.abs(dayDifferance) : dayDifferance = dayDifferance
+              if (dayDifferance === 3) {
+                  yearType = 'defective'
+              }
+              if (dayDifferance === 0) {
+                  yearType = 'complete'
+              }
+              if (dayDifferance === 5) {
+                  if (this.isLeap(year)) {
+                      yearType = 'defective'
+                  } else {
+                      yearType = 'complete'
+                  }
+              }
+              return yearType
+      } 
+       const getYearClass = (year) => {
+        if (!this.isLeap(year) && yearType === 'defective') {
+            return 'a'
+        } else if (!this.isLeap(year) && yearType === 'normal') {
+            return 'b'
+        } else if (!this.isLeap(year) && yearType === 'complete') {
+            return 'c'
+        } else if (this.isLeap(year) && yearType === 'defective') {
+            return 'd'
+        } else if (this.isLeap(year) && yearType === 'normal') {
+            return 'e'
+        } else if (this.isLeap(year) && yearType === 'complete') {
+            return 'f'
+        }
+    }    
         let year = 0
         let elapsedYearDays = 0
         if (epochDay < 0) {
             while (epochDay < elapsedYearDays) {
                 year--;
-                this.isLeap(year) ? elapsedYearDays -= 355 : elapsedYearDays -= 354;
+                yearType = getYearType(year, d, h, ch)
+                yearClass = getYearClass(year)
+                if (yearClass === 'a') {
+                    elapsedYearDays -=353
+                  } else if (yearClass === 'b') {
+                    elapsedYearDays -=354
+                  } else if (yearClass === 'c') {
+                    elapsedYearDays -=355
+                  } else if (yearClass === 'd') {
+                    elapsedYearDays -=383
+                  } else if (yearClass === 'e') {
+                    elapsedYearDays -=384
+                  } else if (yearClass === 'f') {
+                    elapsedYearDays -=385
+                  }
+                   if (this.isLeap(year)) {
+                  d = d - 5; h = h - 21; ch = ch - 589;
+              } else {
+                  d = d - 4; h = h - 8; ch = ch - 876;
+              } 
+              if (ch < 0) {
+                  ch = 1080 - Math.abs(ch); h--;
+              }
+              if (h < 0) {
+                  h = 24 - Math.abs(h); d--;
+              }
+              d <= 0 ? d = 7 - Math.abs(d) : d = d;
             }
         } else {
             while (epochDay > elapsedYearDays) {
                 year++;
-                this.isLeap(year) ? elapsedYearDays += 355 : elapsedYearDays += 354;
+                yearType = getYearType(year, d, h, ch)
+                yearClass = getYearClass(year)
+                if (yearClass === 'a') {
+                    elapsedYearDays +=353
+                  } else if (yearClass === 'b') {
+                    elapsedYearDays +=354
+                  } else if (yearClass === 'c') {
+                    elapsedYearDays +=355
+                  } else if (yearClass === 'd') {
+                    elapsedYearDays +=383
+                  } else if (yearClass === 'e') {
+                    elapsedYearDays +=384
+                  } else if (yearClass === 'f') {
+                    elapsedYearDays +=385
+                  }
+                   
+              if (this.isLeap(year)) {
+                  d = d + 5; h = h + 21; ch = ch + 589;
+              } else {
+                  d = d + 4; h = h + 8; ch = ch + 876;
+              }
+              if (!(1080 > ch)) {
+                  ch = ch - 1080; h++;
+              }
+              if (!(24 > h)) {
+                  h = h - 24; d++;
+              }
+              d > 7 ? d = d - 7 : d = d;     
             }
         }
         
-        const yearDay = epochDay < 0 ? Math.abs(elapsedYearDays - epochDay) + 1 : (this.isLeap(year) ? 355 - Math.abs(elapsedYearDays - epochDay) : 354 - Math.abs(elapsedYearDays - epochDay))
-                let elapsed = []
-                let d = 0
-                this.months.map(mon => {d = d + mon.days; elapsed.push(d)})
-                let leapElapsed = []
-                let leapD = 0
-                this.leapMonths.map(mon => {leapD = leapD + mon.days; leapElapsed.push(leapD)})
+        let yearLength = 385
+
+        if (yearClass === 'a') {
+          yearLength = 353
+        } else if (yearClass === 'b') {
+          yearLength = 354
+        } else if (yearClass === 'c') {
+          yearLength = 355
+        } else if (yearClass === 'd') {
+          yearLength = 383
+        } else if (yearClass === 'e') {
+          yearLength = 384
+        } 
+       
+        const yearDay = epochDay < 0 ? Math.abs(elapsedYearDays - epochDay) + 1 : yearLength - Math.abs(elapsedYearDays - epochDay)
+                let elapsedA = []
+                let dA = 0
+                this.months.map(mon => {dA = dA + mon.defectiveDays; elapsedA.push(dA)})
+                let elapsedB = []
+                let dB = 0
+                this.months.map(mon => {dB = dB + mon.days; elapsedB.push(dB)})
+                let elapsedC = []
+                let dC = 0
+                this.months.map(mon => {dC = dC + mon.completeDays; elapsedC.push(dC)})
+                let elapsedD = []
+                let dD = 0
+                this.leapMonths.map(mon => {dD = dD + mon.defectiveDays; elapsedD.push(dD)})
+                let elapsedE = []
+                let dE = 0
+                this.leapMonths.map(mon => {dE = dE + mon.days; elapsedE.push(dE)})
+                let elapsedF = []
+                let dF = 0
+                this.leapMonths.map(mon => {dF = dF + mon.completeDays; elapsedF.push(dF)})
+               
 
                 
 
-        const month = this.isLeap(year) ? (leapElapsed.findIndex(el => yearDay <= el) + 1) : (elapsed.findIndex(el => yearDay <= el) + 1)
+        let month 
+        if (yearClass === 'a') {
+            month = elapsedA.findIndex(el => yearDay <= el) + 1
+          } else if (yearClass === 'b') {
+            month = elapsedB.findIndex(el => yearDay <= el) + 1
+          } else if (yearClass === 'c') {
+            month = elapsedC.findIndex(el => yearDay <= el) + 1
+          } else if (yearClass === 'd') {
+            month = elapsedD.findIndex(el => yearDay <= el) + 1
+          } else if (yearClass === 'e') {
+            month = elapsedE.findIndex(el => yearDay <= el) + 1
+          } else if (yearClass === 'f') {
+            month = elapsedF.findIndex(el => yearDay <= el) + 1
+          }
+        //this.isLeap(year) ? (leapElapsed.findIndex(el => yearDay <= el) + 1) : (elapsed.findIndex(el => yearDay <= el) + 1)
 
-        const day = month === 1 ? yearDay : (this.isLeap(year) ? (yearDay - leapElapsed[month - 2]) : (yearDay - elapsed[month - 2]))
+        let day 
+        if (month === 1) {
+            day = yearDay
+        } else if (yearClass === 'a') {
+            day = yearDay - elapsedA[month - 2]
+          } else if (yearClass === 'b') {
+            day = yearDay - elapsedB[month - 2]
+          } else if (yearClass === 'c') {
+            day = yearDay - elapsedC[month - 2]
+          } else if (yearClass === 'd') {
+            day = yearDay - elapsedD[month - 2]
+          } else if (yearClass === 'e') {
+            day = yearDay - elapsedE[month - 2]
+          } else if (yearClass === 'f') {
+            day = yearDay - elapsedF[month - 2]
+          }
+        // month === 1 ? yearDay : (this.isLeap(year) ? (yearDay - leapElapsed[month - 2]) : (yearDay - elapsed[month - 2]))
         
         return [year, month, day]       
     },
     
     testFunction(year) {
-        const longYears = [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29]
-        const longMinusYears = [2, 5, 7, 10, 13, 15, 18, 21, 24, 26, 29]
-        return year > 0 ? longYears.includes(year % 30) : longMinusYears.includes(Math.abs(year % 30))
+      let d = year > 0 ? 2 : 3
+      let h = year > 0 ? 5 : 7
+      let ch = year > 0 ? 204 : 695
+      let yearType
+      let yearClass = year > 0 ? 'c' : 'e'
+      let elapsedYearDays = year > 0 ? 0 : -384
+      const getYearType = (year, d, h, ch) => {
+        yearType = 'normal'
+        let roshHashanah = d
+        let nextD = 0
+            let nextH = 0
+            let nextCh = 0
+      h >= 18 ? roshHashanah++ : roshHashanah = roshHashanah;
+      roshHashanah === 8 ? roshHashanah = 2 : roshHashanah = roshHashanah;
+      if (roshHashanah === 1 || roshHashanah === 4 || roshHashanah === 6) {
+          roshHashanah++;
+      } 
+      if (!this.isLeap(year) && d === 3 && h < 18 && ((h > 9) || (h === 9 && ch >= 204))) {
+          roshHashanah = 5;
+      }
+      if (this.isLeap(year - 1) && d === 2 && h < 18 &&((h > 15) || (h === 15 && ch > 589))) {
+          roshHashanah++;
+      }
+          if (this.isLeap(year)) {
+              nextD = d + 5; nextH = h +21; nextCh = ch + 589;
+          } else {
+              nextD = d + 4; nextH = h + 8; nextCh = ch + 876;
+          }
+          if (!(1080 > nextCh)) {
+              nextCh = nextCh - 1080; nextH++;
+          }
+          if (!(24 > nextH)) {
+              nextH = nextH - 24; nextD++;
+          }
+          nextD > 7 ? nextD = nextD -7 : nextD = nextD;
+          
+              let nextRoshHashanah = nextD
+              nextH >= 18 ? nextRoshHashanah++ : nextRoshHashanah = nextRoshHashanah;
+              nextRoshHashanah === 8 ? nextRoshHashanah = 2 : nextRoshHashanah = nextRoshHashanah;
+              if (nextRoshHashanah === 1 || nextRoshHashanah === 4 || nextRoshHashanah === 6) {
+                  nextRoshHashanah++;
+              } 
+              if (!this.isLeap(year + 1) && nextD === 3 && nextH < 18 && ((nextH > 9) || (nextH === 9 && nextCh >= 204))) {
+                  nextRoshHashanah = 5;
+              }
+              if (this.isLeap(year) && nextD === 2 && nextH < 18 &&((nextH > 15) || (nextH === 15 && nextCh > 589))) {
+                  nextRoshHashanah++;
+              }
+              let dayDifferance = nextRoshHashanah - roshHashanah
+              dayDifferance < 0 ? dayDifferance = 7 - Math.abs(dayDifferance) : dayDifferance = dayDifferance
+              if (dayDifferance === 3) {
+                  yearType = 'defective'
+              }
+              if (dayDifferance === 0) {
+                  yearType = 'complete'
+              }
+              if (dayDifferance === 5) {
+                  if (this.isLeap(year)) {
+                      yearType = 'defective'
+                  } else {
+                      yearType = 'complete'
+                  }
+              }
+              return yearType
+      } 
+      const getYearClass = (year) => {
+        if (!this.isLeap(year) && yearType === 'defective') {
+            return 'a'
+        } else if (!this.isLeap(year) && yearType === 'normal') {
+            return 'b'
+        } else if (!this.isLeap(year) && yearType === 'complete') {
+            return 'c'
+        } else if (this.isLeap(year) && yearType === 'defective') {
+            return 'd'
+        } else if (this.isLeap(year) && yearType === 'normal') {
+            return 'e'
+        } else if (this.isLeap(year) && yearType === 'complete') {
+            return 'f'
+        }
+    }    
+      if (year > 0) {
+          let count = 1                
+          while (count < year) {
+            
+           
+            
+              
+              if (this.isLeap(count)) {
+                  d = d + 5; h = h + 21; ch = ch + 589;
+              } else {
+                  d = d + 4; h = h + 8; ch = ch + 876;
+              }
+              if (!(1080 > ch)) {
+                  ch = ch - 1080; h++;
+              }
+              if (!(24 > h)) {
+                  h = h - 24; d++;
+              }
+              d > 7 ? d = d - 7 : d = d;            
+              
+              count++;
+              yearType = (getYearType(count, d, h, ch))              
+              yearClass = getYearClass(count)
+              if (yearClass === 'a') {
+                elapsedYearDays +=353
+              } else if (yearClass === 'b') {
+                elapsedYearDays +=354
+              } else if (yearClass === 'c') {
+                elapsedYearDays +=355
+              } else if (yearClass === 'd') {
+                elapsedYearDays +=383
+              } else if (yearClass === 'e') {
+                elapsedYearDays +=384
+              } else if (yearClass === 'f') {
+                elapsedYearDays +=385
+              }
+          }
+      } else {
+          let count = -1
+          while (count > year) {
+              if (this.isLeap(count - 1)) {
+                  d = d - 5; h = h - 21; ch = ch - 589;
+              } else {
+                  d = d - 4; h = h - 8; ch = ch - 876;
+              } 
+              if (ch < 0) {
+                  ch = 1080 - Math.abs(ch); h--;
+              }
+              if (h < 0) {
+                  h = 24 - Math.abs(h); d--;
+              }
+              d <= 0 ? d = 7 - Math.abs(d) : d = d;
+
+              count--;
+              yearType = (getYearType(count, d, h, ch))              
+              yearClass = getYearClass(count)
+              if (yearClass === 'a') {
+                elapsedYearDays -=353
+              } else if (yearClass === 'b') {
+                elapsedYearDays -=354
+              } else if (yearClass === 'c') {
+                elapsedYearDays -=355
+              } else if (yearClass === 'd') {
+                elapsedYearDays -=383
+              } else if (yearClass === 'e') {
+                elapsedYearDays -=384
+              } else if (yearClass === 'f') {
+                elapsedYearDays -=385
+              }
+          }
+      }
+      
+
+          
+      return [yearClass, elapsedYearDays]
+        
     },     
 }
 
-//ciągle nie działa convertfrom dla Juliana, chodzi o dodawanie i odejmowanie lat na pewno
+
 /*
  {
         id: 1,

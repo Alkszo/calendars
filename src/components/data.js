@@ -40,9 +40,9 @@ const data = [
               let count = year > 0 ? 1 : 0
               let elapsedYearDays = 0
               if (year > 0) {
-                    while (count < year) {
-                      count++;
+                    while (count < year) {                      
                       this.isLeap(count) ? elapsedYearDays += 366 : elapsedYearDays += 365;
+                      count++;
                     }
                   } else {
                       while (count > year) {
@@ -58,7 +58,7 @@ const data = [
                   elapsedMonthDays +                  
                   day                
               )   
-              // jeszcze cos jest niehalo z conwersja! dodawanie lat przy leap lub odejmowanie we wszystkich kalendarzach, universalny problem     
+                  
         },     
         convertFromJD(jd) {
             const gregorianEpoch = -678575
@@ -142,9 +142,9 @@ const data = [
               let count = year > 0 ? 1 : 0
               let elapsedYearDays = 0
               if (year > 0) {
-                    while (count < year) {
-                      count++;
+                    while (count < year) {                      
                       this.isLeap(count) ? elapsedYearDays += 366 : elapsedYearDays += 365;
+                      count++;
                     }
                   } else {
                       while (count > year) {
@@ -242,9 +242,9 @@ const data = [
               let count = year > 0 ? 1 : 0
               let elapsedYearDays = 0
               if (year > 0) {
-                    while (count < year) {
-                      count++;
+                    while (count < year) {                      
                       this.isLeap(count) ? elapsedYearDays += 355 : elapsedYearDays += 354;
+                      count++;
                     }
                   } else {
                       while (count > year) {
