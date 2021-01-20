@@ -3,33 +3,34 @@ const devdata =
     id: 4,
     name: 'in developement',
     months: [
-        {name: 'Nisan', number: 1, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Iyar', number: 2, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Sivan', number: 3, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Tammuz', number: 4, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Av', number: 5, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Elul', number: 6, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Tishrei', number: 7, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Cheshvan', number: 8, days: 29, completeDays: 30, defectiveDays: 29},
-        {name: 'Kislev', number: 9, days: 30, completeDays: 30, defectiveDays: 29},
-        {name: 'Tevet', number: 10, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Shevat', number: 11, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Adar', number: 12, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Tishrei', number: 1, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Cheshvan', number: 2, days: 29, completeDays: 30, defectiveDays: 29},
+        {name: 'Kislev', number: 3, days: 30, completeDays: 30, defectiveDays: 29},
+        {name: 'Tevet', number: 4, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Shevat', number: 5, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Adar', number: 6, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Nisan', number: 7, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Iyar', number: 8, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Sivan', number: 9, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Tammuz', number: 10, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Av', number: 11, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Elul', number: 12, days: 29, completeDays: 29, defectiveDays: 29},        
     ],
     leapMonths: [
-        {name: 'Nisan', number: 1, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Iyar', number: 2, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Sivan', number: 3, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Tammuz', number: 4, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Av', number: 5, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Elul', number: 6, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Tishrei', number: 7, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Cheshvan', number: 8, days: 29, completeDays: 30, defectiveDays: 29},
-        {name: 'Kislev', number: 9, days: 30, completeDays: 30, defectiveDays: 29},
-        {name: 'Tevet', number: 10, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Shevat', number: 11, days: 30, completeDays: 30, defectiveDays: 30},
-        {name: 'Adar', number: 12, days: 29, completeDays: 29, defectiveDays: 29},
-        {name: 'Adar II', number: 13, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Tishrei', number: 1, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Cheshvan', number: 2, days: 29, completeDays: 30, defectiveDays: 29},
+        {name: 'Kislev', number: 3, days: 30, completeDays: 30, defectiveDays: 29},
+        {name: 'Tevet', number: 4, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Shevat', number: 5, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Adar', number: 6, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Adar II', number: 7, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Nisan', number: 8, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Iyar', number: 9, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Sivan', number: 10, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Tammuz', number: 11, days: 29, completeDays: 29, defectiveDays: 29},
+        {name: 'Av', number: 12, days: 30, completeDays: 30, defectiveDays: 30},
+        {name: 'Elul', number: 13, days: 29, completeDays: 29, defectiveDays: 29},
+        
     ],
     isLeap(year) {
         const longYears = [0, 3, 6, 8, 11, 14, 17]
@@ -192,7 +193,7 @@ const devdata =
           return elapsedYearDays
     },    
     convertToJD(yearClass, daysGone, month, day) {
-        const hebrewEpoch = -2051825
+        const hebrewEpoch = -2052003
           let elapsedMonthDays = 0
           if (yearClass === 'a') {
             this.months.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.defectiveDays})
@@ -206,7 +207,8 @@ const devdata =
             this.leapMonths.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.days})
           } else {
             this.leapMonths.filter(mon => mon.number < month).map(mon => {elapsedMonthDays = elapsedMonthDays + mon.completeDays})
-          }       
+          } 
+           
           return(
               hebrewEpoch + 
               daysGone +          
@@ -215,23 +217,24 @@ const devdata =
           )            
     },     
     convertFromJD(jd) {
-        const hebrewEpoch = -2051825
+        const hebrewEpoch = -2052003
         let epochDay = jd - hebrewEpoch
         if (epochDay >= 0) {
             epochDay++
         }   
-          
+        console.log(epochDay)
           let d = epochDay > 0 ? 2 : 3
       let h = epochDay > 0 ? 5 : 7
       let ch = epochDay > 0 ? 204 : 695
-      let yearType
-      let yearClass = epochDay > 0 ? 'c' : 'e'    
+      let yearClass = epochDay > 0 ? 'c' : 'e'
+      let elapsedYearDays = epochDay > 0 ? 0 : -384
+      let yearType       
       const getYearType = (year, d, h, ch) => {
         yearType = 'normal'
         let roshHashanah = d
         let nextD = 0
-            let nextH = 0
-            let nextCh = 0
+        let nextH = 0
+        let nextCh = 0
       h >= 18 ? roshHashanah++ : roshHashanah = roshHashanah;
       roshHashanah === 8 ? roshHashanah = 2 : roshHashanah = roshHashanah;
       if (roshHashanah === 1 || roshHashanah === 4 || roshHashanah === 6) {
@@ -300,11 +303,41 @@ const devdata =
             return 'f'
         }
     }    
-        let year = 0
-        let elapsedYearDays = 0
+        let year = epochDay > 0 ? 0 : -1
+        
         if (epochDay < 0) {
             while (epochDay < elapsedYearDays) {
-                year--;
+              if (this.isLeap(year - 1)) {
+                d = d - 5; h = h - 21; ch = ch - 589;
+            } else {
+                d = d - 4; h = h - 8; ch = ch - 876;
+            } 
+            if (ch < 0) {
+                ch = 1080 - Math.abs(ch); h--;
+            }
+            if (h < 0) {
+                h = 24 - Math.abs(h); d--;
+            }
+            d <= 0 ? d = 7 - Math.abs(d) : d = d;
+
+            year--;
+            yearType = (getYearType(year, d, h, ch))              
+            yearClass = getYearClass(year)
+            if (yearClass === 'a') {
+              elapsedYearDays -=353
+            } else if (yearClass === 'b') {
+              elapsedYearDays -=354
+            } else if (yearClass === 'c') {
+              elapsedYearDays -=355
+            } else if (yearClass === 'd') {
+              elapsedYearDays -=383
+            } else if (yearClass === 'e') {
+              elapsedYearDays -=384
+            } else if (yearClass === 'f') {
+              elapsedYearDays -=385
+            }
+          }
+               /* year--;
                 yearType = getYearType(year, d, h, ch)
                 yearClass = getYearClass(year)
                 if (yearClass === 'a') {
@@ -320,6 +353,7 @@ const devdata =
                   } else if (yearClass === 'f') {
                     elapsedYearDays -=385
                   }
+                  
                    if (this.isLeap(year)) {
                   d = d - 5; h = h - 21; ch = ch - 589;
               } else {
@@ -332,7 +366,7 @@ const devdata =
                   h = 24 - Math.abs(h); d--;
               }
               d <= 0 ? d = 7 - Math.abs(d) : d = d;
-            }
+            } */
         } else {
             while (epochDay > elapsedYearDays) {
                 year++;
@@ -363,10 +397,12 @@ const devdata =
               if (!(24 > h)) {
                   h = h - 24; d++;
               }
-              d > 7 ? d = d - 7 : d = d;     
+              d > 7 ? d = d - 7 : d = d;
+                
             }
+             
         }
-        
+        console.log(yearClass, elapsedYearDays)
         let yearLength = 385
 
         if (yearClass === 'a') {
@@ -380,26 +416,22 @@ const devdata =
         } else if (yearClass === 'e') {
           yearLength = 384
         } 
-       
+        console.log(yearLength)
+        //let elapsedF = []
+                  //  let dF = 0
+                  //  this.leapMonths.map(mon => {dF = dF + mon.completeDays; elapsedF.push(dF)})
+
         const yearDay = epochDay < 0 ? Math.abs(elapsedYearDays - epochDay) + 1 : yearLength - Math.abs(elapsedYearDays - epochDay)
-                let elapsedA = []
-                let dA = 0
-                this.months.map(mon => {dA = dA + mon.defectiveDays; elapsedA.push(dA)})
-                let elapsedB = []
-                let dB = 0
-                this.months.map(mon => {dB = dB + mon.days; elapsedB.push(dB)})
-                let elapsedC = []
-                let dC = 0
-                this.months.map(mon => {dC = dC + mon.completeDays; elapsedC.push(dC)})
-                let elapsedD = []
-                let dD = 0
-                this.leapMonths.map(mon => {dD = dD + mon.defectiveDays; elapsedD.push(dD)})
-                let elapsedE = []
-                let dE = 0
-                this.leapMonths.map(mon => {dE = dE + mon.days; elapsedE.push(dE)})
-                let elapsedF = []
-                let dF = 0
-                this.leapMonths.map(mon => {dF = dF + mon.completeDays; elapsedF.push(dF)})
+                
+                const elapsedA = [30, 59, 88, 117, 147, 176, 206, 235, 265, 294, 324, 353]
+                const elapsedB = [30, 59, 89, 118, 148, 177, 207, 236, 266, 295, 325, 354]               
+                const elapsedC = [30, 60, 90, 119, 149, 178, 208, 237, 267, 296, 326, 355]                
+                const elapsedD = [30, 59, 88, 117, 147, 177, 206, 236, 265, 295, 324, 354, 383]               
+                const elapsedE = [30, 59, 89, 118, 148, 178, 207, 237, 266, 296, 325, 355, 384]             
+                const elapsedF = [30, 60, 90, 119, 149, 179, 208, 238, 267, 297, 326, 356, 385]
+                
+
+         console.log(yearDay)   
                
 
                 
@@ -462,7 +494,7 @@ const devdata =
       if (!this.isLeap(year) && d === 3 && h < 18 && ((h > 9) || (h === 9 && ch >= 204))) {
           roshHashanah = 5;
       }
-      if (this.isLeap(year - 1) && d === 2 && h < 18 &&((h > 15) || (h === 15 && ch > 589))) {
+      if (this.isLeap(year - 1) && d === 2 && h < 18 && ((h > 15) || (h === 15 && ch > 589))) {
           roshHashanah++;
       }
           if (this.isLeap(year)) {
@@ -526,7 +558,21 @@ const devdata =
           let count = 1                
           while (count < year) {
             
-           
+            yearType = (getYearType(count, d, h, ch))              
+            yearClass = getYearClass(count)
+            if (yearClass === 'a') {
+              elapsedYearDays +=353
+            } else if (yearClass === 'b') {
+              elapsedYearDays +=354
+            } else if (yearClass === 'c') {
+              elapsedYearDays +=355
+            } else if (yearClass === 'd') {
+              elapsedYearDays +=383
+            } else if (yearClass === 'e') {
+              elapsedYearDays +=384
+            } else if (yearClass === 'f') {
+              elapsedYearDays +=385
+            }
             
               
               if (this.isLeap(count)) {
@@ -543,25 +589,12 @@ const devdata =
               d > 7 ? d = d - 7 : d = d;            
               
               count++;
-              yearType = (getYearType(count, d, h, ch))              
-              yearClass = getYearClass(count)
-              if (yearClass === 'a') {
-                elapsedYearDays +=353
-              } else if (yearClass === 'b') {
-                elapsedYearDays +=354
-              } else if (yearClass === 'c') {
-                elapsedYearDays +=355
-              } else if (yearClass === 'd') {
-                elapsedYearDays +=383
-              } else if (yearClass === 'e') {
-                elapsedYearDays +=384
-              } else if (yearClass === 'f') {
-                elapsedYearDays +=385
-              }
+              
           }
       } else {
           let count = -1
           while (count > year) {
+           
               if (this.isLeap(count - 1)) {
                   d = d - 5; h = h - 21; ch = ch - 589;
               } else {
@@ -591,9 +624,12 @@ const devdata =
               } else if (yearClass === 'f') {
                 elapsedYearDays -=385
               }
+              
           }
       }
       
+      yearType = (getYearType(year, d, h, ch))              
+      yearClass = getYearClass(year)
 
           
       return [yearClass, elapsedYearDays]

@@ -9,19 +9,15 @@ class App extends Component {
   constructor(props){
     super(); 
     this.state = {
-      currentTime: 58849,
-      selectedTime: 58849,
+      currentTime: -2052003,
+      selectedTime: -2052003,
     }   
     
   }
 
     handleOmniCalc = (date) => {
     this.setState({ currentTime: date, selectedTime: date })
-  }
-
-  testFunction = (year) => {
-    return (year > 0) ? (year % 4) === 0 : (year % 4) === -1
-  }
+  } 
   
   handleTimeChange = (e) => {
     this.setState({ selectedTime: e.target.value})
